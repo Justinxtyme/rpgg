@@ -723,7 +723,7 @@ def enemy_turn(enemy, player, enemy_weapon):
 #COMBAT LOOP SETUP
 def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
     turn = 1
-
+    print(f"{defender.name} has challenged {attacker.name}!")
     while attacker.hp > 0 and defender.hp > 0:
         if turn % 2 != 0:  # Player's turn
             main_loop = True

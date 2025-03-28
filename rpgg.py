@@ -68,6 +68,7 @@ class Character:
         }
         self.action_log = []
         self.spell_list = []
+        self.status_effects = []
         # Assign default attribute values based on class
         if char_class == "Warrior":
             self.strength = 15
@@ -205,23 +206,11 @@ class Character:
         self.inventory_weight += removed_armor.weight
         print(f"Unequipped {removed_armor.name} from {armor_type}.")
 
-    #movement
-    def move_entity(entity, dx, dy, world_map):
-        new_x = entity.x + dx
-        new_y = entity.y + dy
-        # Check if the new position is within the map bounds
-        if 0 <= new_y < len(world_map) and 0 <= new_x < len(world_map[0]):
-            tile = world_map[new_y][new_x]   
-            if tile.passable:  # Only move if tile is not blocked
-                entity.x = new_x
-                entity.y = new_y
-                print(f"{entity.name} moved to ({new_x}, {new_y})")
-            else:
-                print(f"{entity.name} can't move there! {tile.terrain} is not passable.")
-        else:
-            print(f"{entity.name} can't move out of bounds!")
-
-
+    def add_status_effect(self, effect):
+        """Adds a status effect to the character."""
+        self.status_effects.append(effect)
+        print(f"{self.name} is now affected by {effect.name} for {effect.duration} turns!")
+    
     #item functions
     def equip_item(self, item_weight):
         self.equipped_weight += item_weight
@@ -332,6 +321,7 @@ class Character:
     def get_position(self):
         print((self.x, self.y))
         return (self.x, self.y)
+
 
 # Example of creating different character classes
 aragorn = Character(name="Aragorn", char_class="Warrior", x=0, y=0)
@@ -589,7 +579,7 @@ def move_entity(entity, dx, dy, world_map):
     else:
         print(f"{entity.name} can't move out of bounds!")
 
-# MOVE CALCULATIONS
+# WEAPON ACTION CALCULATIONS
 def dagger_one(attacker, defender, weapon):
     # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.
     messages = []
@@ -653,6 +643,23 @@ def heavy_attack(attacker, defender, weapon):
     multiplier = 100 / (100 + defender.get_defense())
     attacker.stamina -= 20
     return max(raw_damage * multiplier, 1)
+## status effect/tick logic
+class StatusEffect:
+    def __init__(self, name, duration, effect_func, blocks_action=False):
+        self.name = name
+        self.duration = duration  # Number of turns effect lasts
+        self.effect_func = effect_func  # Function applied each turn
+        self.blocks_action = blocks_action  # Whether it prevents the character from acting
+
+    def tick_effect(self, character):
+        """Process the effect for this turn and decrement duration."""
+        self.effect_func(character)  # Apply the effect (e.g., damage, stun message)
+        self.duration -= 1  # Reduce duration after processing
+
+    def is_expired(self):
+        return self.duration <= 0
+    
+
 # ZONE MENU SETUP
 def zone_menu(weapon):
     if not weapon.zone:
@@ -674,6 +681,15 @@ def zone_menu(weapon):
     except ValueError:
         print("Invalid input.")
         return None
+
+#STATUS EFFECTS
+def process_status_effects(character):
+    # Iterate over a copy of the list so we can remove expired effects
+    for effect in character.status_effects[:]:
+        effect.apply(character)
+        if effect.is_expired():
+            character.status_effects.remove(effect)
+
 #ENEMY COMBAT LOGIC
 def enemy_choose_action(enemy, health):
     # Options: 'basic', 'quick', 'heavy'

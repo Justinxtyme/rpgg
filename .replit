@@ -1,0 +1,15 @@
+modules = ["python-3.11"]
+[workflows]
+runButton = "Run RPGG"
+
+[[workflows.workflow]]
+name = "Run RPGG"
+author = 40933259
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python rpgg/rpgg.py"
+
+[nix]
+channel = "stable-24_05"

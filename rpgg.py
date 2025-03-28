@@ -210,7 +210,7 @@ class Character:
         """Adds a status effect to the character."""
         self.status_effects.append(effect)
         print(f"{self.name} is now affected by {effect.name} for {effect.duration} turns!")
-    
+
     #item functions
     def equip_item(self, item_weight):
         self.equipped_weight += item_weight
@@ -583,7 +583,7 @@ def move_entity(entity, dx, dy, world_map):
 def dagger_one(attacker, defender, weapon):
     # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.
     messages = []
-    raw_damage = weapon.calculate_damage(attacker) * 1.0  # 20% less damage
+    raw_damage = weapon.calculate_damage(attacker) * 10 # 20% less damage
     roll = random.random()
     if roll < 0.9:
         fire_damage = fire_burst(attacker, defender)
@@ -609,7 +609,22 @@ def dagger_two(attacker, defender, weapon):
         total_damage = raw_damage  # Nor
     attacker.stamina -= 15
     return max(total_damage * multiplier, 1)
-dagger_zone.update({"Dagger 1": dagger_one,"Dagger 2": dagger_two})
+
+def dagger_three(attacker, defender, weapon):
+    # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.
+    raw_damage = weapon.calculate_damage(attacker) * 1.0  # 20% less damage
+    multiplier = 100 / (100 + defender.get_defense())
+    roll = random.random()  # gives a value between 0 and 1
+    if roll < 0.9:
+        defender.status_effects.append(StatusEffect("Stun", 1, lambda char: restrict_action(char, stun), blocks_action=True))
+        print(f"Stun applied! {defender.name}'s status effects: {[effect.name for effect in defender.status_effects]}")
+        total_damage = raw_damage
+
+    else:
+        total_damage = raw_damage  # Nor
+    attacker.stamina -= 15
+    return max(total_damage * multiplier, 1)
+dagger_zone.update({"Dagger 1": dagger_one,"Dagger 2": dagger_two,"Dagger 3": dagger_three})
 
 def basic_attack(attacker, defender, weapon):
       # Step 1: Compute raw damage using the weapon's calculate_damage() method.
@@ -658,7 +673,9 @@ class StatusEffect:
 
     def is_expired(self):
         return self.duration <= 0
-    
+
+    def __str__(self):
+        return f"{self.name} (Duration: {self.duration})"
 
 # ZONE MENU SETUP
 def zone_menu(weapon):
@@ -681,15 +698,34 @@ def zone_menu(weapon):
     except ValueError:
         print("Invalid input.")
         return None
+#GENERAL EFFFECT FUNCTIONS
+def restrict_action(character, effect):
+    """Prevents the character from taking action for a turn."""
+    print(f"{character.name} is affected by {effect.name}!")
+    return False  # Indicates that the action is blocked
 
+def poison_damage(character, effect):
+    damage = 10
+    character.hp -= damage
+    print(f"{character.name} is affected by {effect.name} and takes damage!")
+
+
+#STATUS EFFECTS 
+stun = StatusEffect("Stun", duration=1, effect_func=lambda char: restrict_action(char, stun), blocks_action=True)
+hold = StatusEffect("Hold", duration=2, effect_func=lambda char: restrict_action(char, hold), blocks_action=True)
+fear = StatusEffect("Fear", duration=3, effect_func=lambda char: restrict_action(char, fear), blocks_action=True)
+poison = StatusEffect("Poison", duration=3, effect_func=lambda char: poison_damage(char, poison), blocks_action=False)
 #STATUS EFFECTS
 def process_status_effects(character):
-    # Iterate over a copy of the list so we can remove expired effects
-    for effect in character.status_effects[:]:
-        effect.apply(character)
-        if effect.is_expired():
-            character.status_effects.remove(effect)
+    # Remove expired effects before applying new ones
+    character.status_effects = [effect for effect in character.status_effects if not effect.is_expired()]
 
+    for effect in character.status_effects[:]:  
+        effect.tick_effect(character)
+effect_map = {
+    "Stun": "stunned",
+    "Fear": "in a state of fear",
+}     
 #ENEMY COMBAT LOGIC
 def enemy_choose_action(enemy, health):
     # Options: 'basic', 'quick', 'heavy'
@@ -706,8 +742,15 @@ def enemy_choose_action(enemy, health):
         return random.choice(actions)
         enemy.action_log = []
 
+
 def enemy_turn(enemy, player, enemy_weapon):
     messages = []
+    for effect in enemy.status_effects:
+        if effect.blocks_action:
+            effect_name = effect_map.get(effect.name, effect.name)
+            print(f"{enemy.name} is {effect_name} and cannot act!")
+            return messages  # Prevent further actions
+
     action = enemy_choose_action(enemy, enemy.hp)
     if action == 'basic':
         damage = basic_attack(enemy, player, enemy_weapon)
@@ -733,9 +776,12 @@ def enemy_turn(enemy, player, enemy_weapon):
 
 #COMBAT LOOP SETUP
 def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
-    turn = 1
     print(f"{defender.name} has challenged {attacker.name}!")
+    turn = 1
     while attacker.hp > 0 and defender.hp > 0:
+        process_status_effects(attacker) 
+        process_status_effects(defender) 
+
         if turn % 2 != 0:  # Player's turn
             main_loop = True
             while main_loop:
@@ -758,7 +804,7 @@ def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
                 elif choice == "3":
                     damage = heavy_attack(attacker, defender, attacker_weapon)
                     messages.append(f"{attacker.name} does a heavy attack!")
-                elif choice == "4":
+                elif choice == o"4":
                     item_used = False
                     while True:
                         consumable_names = list(attacker.inventory["Consumables"].keys())

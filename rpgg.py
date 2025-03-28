@@ -325,8 +325,6 @@ class Character:
     def get_defense(self):
         return self.defense
 
-    #def get_equipped_armor(self):
-     #   return {slot: armor.name for slot, armor in self.equipped_armor.items()}
 
     def get_equipped_armor(self):
         return {slot: armor.name if armor else "None" for slot, armor in self.equipped_armor.items()}
@@ -340,10 +338,6 @@ aragorn = Character(name="Aragorn", char_class="Warrior", x=0, y=0)
 gandalf = Character(name="Gandalf", char_class="Mage", x=0, y=0)
 zorro = Character(name="Zorro", char_class="Rogue", x=0, y=0)
 buffneck = Character(name="Buff Neck", char_class="Brute", x=0, y=0)
-
-# Print out stats for each class
-
-
 
 # WEAPON SETUP
 class Weapon:

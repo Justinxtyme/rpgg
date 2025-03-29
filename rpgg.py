@@ -416,9 +416,6 @@ class LongBow(RangedWeapon):
 class CrossBow(RangedWeapon):
     def __init__(self, name, weight, base_damage, rarity_mod, scaling, zone):
         super().__init__(name, weight, base_damage, rarity_mod, scaling, zone)
-
-##zone try
-dagger_zone = {}
 ##weapon creation
 bronze_dagger = Dagger(name="Bronze Dagger", weight=2, base_damage=8, rarity_mod=1.0, scaling={"dexterity": 1.0}, zone=None)
 bronze_straight_sword = MediumSword(name="Bronze Straight Sword", weight=4, base_damage=12, rarity_mod=1.0, scaling={"dexterity": 0.4, "strength": 0.6}, zone=None)
@@ -617,6 +614,7 @@ def move_entity(entity, dx, dy, world_map):
 # ----- MOVEMENT SYSTEM END -----
 
 # ----- COMBAT SYSTEM START -----
+dagger_zone = {}
 def dagger_one(attacker, defender, weapon):
     # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.
     messages = []

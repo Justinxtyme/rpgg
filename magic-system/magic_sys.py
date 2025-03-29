@@ -4,6 +4,7 @@ class Magic:
         self.magic_type = magic_type
         self.mp_cost = mp_cost
         self.effect = effect
+        self.scaling = scaling
     
     def cast(self, caster, target):
         base_damage = self.effect(caster, target)
@@ -15,24 +16,24 @@ class Magic:
         return total_damage
         
 class Divination(Magic):
-    def __init__(self, name, magic_type, mp_cost, effect):
-        super().__init__(name, magic_type, mp_cost, effect)
+    def __init__(self, name, magic_type, mp_cost, effect, scaling):
+        super().__init__(name, magic_type, mp_cost, effect, scaling)
       
 class Sorcery(Magic):
-    def __init__(self, name, magic_type, mp_cost, effect):
-        super().__init__(name, magic_type, mp_cost, effect)
+    def __init__(self, name, magic_type, mp_cost, effect, scaling):
+        super().__init__(name, magic_type, mp_cost, effect, scaling)
 
 class Pyromancy(Magic):
-    def __init__(self, name, magic_type, mp_cost, effect):
-        super().__init__(name, magic_type, mp_cost, effect)
+    def __init__(self, name, magic_type, mp_cost, effect, scaling):
+        super().__init__(name, magic_type, mp_cost, effect, scaling)
 
 class BloodMagic(Magic):
-    def __init__(self, name, magic_type, mp_cost, effect):
-        super().__init__(name, magic_type, mp_cost, effect)
+    def __init__(self, name, magic_type, mp_cost, effect, scaling):
+        super().__init__(name, magic_type, mp_cost, effect, scaling)
       
 class BladeMagic(Magic):
-    def __init__(self, name, magic_type, mp_cost, effect):
-        super().__init__(name, magic_type, mp_cost, effect)
+    def __init__(self, name, magic_type, mp_cost, effect, scaling):
+        super().__init__(name, magic_type, mp_cost, effect, scaling)
 
 minor_blessing = Divination(name="Minor Blessing", magic_type="Divination", mp_cost=20, effect=normal_heal)
 fire_blast = Pyromancy(name="Fire Blast", magic_type="Pyromancy", mp_cost=20, effect=fire_burst)

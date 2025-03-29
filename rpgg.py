@@ -1,6 +1,6 @@
-"""Git update last test"""
+# IMPORT
 import random
-# MAP STUFF
+# MAP SYSTEM
 class Tile:
     def __init__(self, terrain, passable=True):
         self.terrain = terrain
@@ -47,7 +47,7 @@ def load_map(file_path):
     return world 
 # Uncomment this when ready to use a file-based map 
 # world_map = load_map("map.txt") 
-# CHARACTER SETUP
+# CHARACTER SYSTEM
 class Character:
     def __init__(self, name: str, char_class, x=0, y=0):
         self.name = name
@@ -329,7 +329,7 @@ gandalf = Character(name="Gandalf", char_class="Mage", x=0, y=0)
 zorro = Character(name="Zorro", char_class="Rogue", x=0, y=0)
 buffneck = Character(name="Buff Neck", char_class="Brute", x=0, y=0)
 
-# WEAPON SETUP
+# WEAPONS SYSTEM
 class Weapon:
     def __init__(self, name, weight, base_damage, rarity_mod, scaling, zone):
         self.name = name
@@ -420,7 +420,7 @@ bronze_straight_sword = MediumSword(name="Bronze Straight Sword", weight=4, base
 zone_test = Dagger(name="Zone", weight=2, base_damage=10, rarity_mod=1.0, scaling={"dexterity": 1.0}, zone=dagger_zone)
 print(f"Dagger {bronze_dagger.name}'s damage: {bronze_dagger.get_base_damage()} rarity: {bronze_dagger.get_rarity()}")
 
-### ARMOR SETUP
+# ARMOR SYSTEM
 class Armor:
     def __init__(self, name, weight, armor_type, armor_class, base_defense,
         rarity_mod, attribute_bonuses):
@@ -532,7 +532,8 @@ buffneck.inventory["Consumables"][weak_health_potion.name] = 3
 gandalf.inventory["Consumables"][weak_health_potion.name] = 3
 gandalf.inventory["Consumables"][strength_elixir.name] = 3
 gandalf.equipped_weapons["right hand"] = zone_test
-#MAGIC SETUP
+
+#MAGIC SYSTEM
 class Magic:
     def __init__(self, name, magic_type,):
         self.name = name
@@ -563,7 +564,7 @@ class BloodMagic(Magic):
 minor_blessing = Divination(name="Minor Blessing", magic_type="Divination", mp_cost=20, effect=normal_heal)
 fire_blast = Pyromancy(name="Fire Blast", magic_type="Pyromancy", mp_cost=20, effect=fire_burst)
 
-#movement
+ # MOVEMENT
 def move_entity(entity, dx, dy, world_map):
     new_x = entity.x + dx
     new_y = entity.y + dy
@@ -579,7 +580,7 @@ def move_entity(entity, dx, dy, world_map):
     else:
         print(f"{entity.name} can't move out of bounds!")
 
-# WEAPON ACTION CALCULATIONS
+# COMBAT SYSTEM
 def dagger_one(attacker, defender, weapon):
     # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.
     messages = []
@@ -715,7 +716,7 @@ stun = StatusEffect("Stun", duration=1, effect_func=lambda char: restrict_action
 hold = StatusEffect("Hold", duration=2, effect_func=lambda char: restrict_action(char, hold), blocks_action=True)
 fear = StatusEffect("Fear", duration=3, effect_func=lambda char: restrict_action(char, fear), blocks_action=True)
 poison = StatusEffect("Poison", duration=3, effect_func=lambda char: poison_damage(char, poison), blocks_action=False)
-#STATUS EFFECTS
+
 def process_status_effects(character):
     # Remove expired effects before applying new ones
     character.status_effects = [effect for effect in character.status_effects if not effect.is_expired()]
@@ -726,7 +727,7 @@ effect_map = {
     "Stun": "stunned",
     "Fear": "in a state of fear",
 }     
-#ENEMY COMBAT LOGIC
+# enemy combat logic
 def enemy_choose_action(enemy, health):
     # Options: 'basic', 'quick', 'heavy'
     actions = ['basic', 'quick', 'heavy']
@@ -774,7 +775,7 @@ def enemy_turn(enemy, player, enemy_weapon):
         print(message)
     return messages
 
-#COMBAT LOOP SETUP
+# combat loop
 def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
     print(f"{defender.name} has challenged {attacker.name}!")
     turn = 1

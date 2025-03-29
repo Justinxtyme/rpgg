@@ -187,6 +187,7 @@ def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
                 print("4. Use Item")
                 print("5. Swap Weapon")
                 print("6. Zone")
+                print("7. Spell")
                 choice = input("Enter your choice: ")
 
                 if choice == "1":
@@ -238,7 +239,39 @@ def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
                         continue  # Cancel and re-prompt menu
                     damage = move_func(attacker, defender, attacker.equipped_weapons["right hand"]) 
                     print(f"{attacker.name} uses {move_name}!")
+                
+                elif choice == '7':
+                    spell_used = False
+                    while True:
+                        spell_names = list(attacker.spell_list.keys())
+                        if not spell_names:
+                            print("No spells available!")
+                            break
 
+                        print("Available spells:")
+                        for i, name in enumerate(spell_names, start=1):
+                            print(f"{i}. {name}")
+
+                        spell_choice = input("Enter the number of the spell to use: ")
+                        try:
+                            index = int(spell_choice) - 1
+                            if index < 0 or index >= len(spell_names):
+                                print("Invalid selection.")
+                                continue
+
+                            chosen_name = spell_names[index]
+                            chosen_spell = spell_objects[chosen_name] 
+                            chosen_spell.use(attacker)
+
+                            damage = 0 
+                            spell_used = True   
+                            break
+                        except ValueError:
+                            print("Invalid input.")
+                            continue
+                    if not spell_used:
+                        continue
+                    damage = 0
                 defender.hp -= damage
                 defender.hp = max(defender.hp, 0)
 

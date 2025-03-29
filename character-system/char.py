@@ -17,7 +17,7 @@ class Character:
         "left hand": None
         }
         self.action_log = []
-        self.spell_list = []
+        self.spell_list = {}
         self.status_effects = []
         # Assign default attribute values based on class
         if char_class == "Warrior":

@@ -2,6 +2,10 @@ class Magic:
     def __init__(self, name, magic_type,):
         self.name = name
         self.magic_type = magic_type
+    
+    def cast(self, caster, target):
+        
+        
 
 class Divination(Magic):
     def __init__(self, name, magic_type, mp_cost, effect):

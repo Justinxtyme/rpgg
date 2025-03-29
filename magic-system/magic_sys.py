@@ -14,9 +14,6 @@ class Magic:
         total_damage = (base_damage + scaling_damage)
         return total_damage
         
-        
-        
-
 class Divination(Magic):
     def __init__(self, name, magic_type, mp_cost, effect):
         super().__init__(name, magic_type, mp_cost, effect)

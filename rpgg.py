@@ -562,6 +562,12 @@ gandalf.inventory["Consumables"][weak_health_potion.name] = 3
 gandalf.inventory["Consumables"][strength_elixir.name] = 3
 gandalf.equipped_weapons["right hand"] = zone_test
 
+#STATUS EFFECTS 
+stun = StatusEffect("Stun", duration=1, effect_func=lambda char: restrict_action(char, stun), blocks_action=True)
+hold = StatusEffect("Hold", duration=2, effect_func=lambda char: restrict_action(char, hold), blocks_action=True)
+fear = StatusEffect("Fear", duration=3, effect_func=lambda char: restrict_action(char, fear), blocks_action=True)
+poison = StatusEffect("Poison", duration=3, effect_func=lambda char: poison_damage(char, poison), blocks_action=False)
+
 # ----- MAGIC SYSTEM START -----
 class Magic:
     def __init__(self, name, magic_type,):
@@ -690,24 +696,6 @@ def heavy_attack(attacker, defender, weapon):
     multiplier = 100 / (100 + defender.get_defense())
     attacker.stamina -= 20
     return max(raw_damage * multiplier, 1)
-## status effect/tick logic
-class StatusEffect:
-    def __init__(self, name, duration, effect_func, blocks_action=False):
-        self.name = name
-        self.duration = duration  # Number of turns effect lasts
-        self.effect_func = effect_func  # Function applied each turn
-        self.blocks_action = blocks_action  # Whether it prevents the character from acting
-
-    def tick_effect(self, character):
-        """Process the effect for this turn and decrement duration."""
-        self.effect_func(character)  # Apply the effect (e.g., damage, stun message)
-        self.duration -= 1  # Reduce duration after processing
-
-    def is_expired(self):
-        return self.duration <= 0
-
-    def __str__(self):
-        return f"{self.name} (Duration: {self.duration})"
 
 # ZONE MENU SETUP
 def zone_menu(weapon):
@@ -741,12 +729,6 @@ def poison_damage(character, effect):
     character.hp -= damage
     print(f"{character.name} is affected by {effect.name} and takes damage!")
 
-
-#STATUS EFFECTS 
-stun = StatusEffect("Stun", duration=1, effect_func=lambda char: restrict_action(char, stun), blocks_action=True)
-hold = StatusEffect("Hold", duration=2, effect_func=lambda char: restrict_action(char, hold), blocks_action=True)
-fear = StatusEffect("Fear", duration=3, effect_func=lambda char: restrict_action(char, fear), blocks_action=True)
-poison = StatusEffect("Poison", duration=3, effect_func=lambda char: poison_damage(char, poison), blocks_action=False)
 
 def process_status_effects(character):
     # Remove expired effects before applying new ones

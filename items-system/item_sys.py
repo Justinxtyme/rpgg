@@ -21,6 +21,12 @@ class KeyItem(Item):
 class CraftingMaterial(Item):
     def __init__(self, name, weight):
         super().__init__(name, weight)
+
+weak_health_potion = Consumable(name="Weak Health Potion", weight=0.3, effect=minor_heal)
+health_potion = Consumable(name="Health Potion", weight=0.3, effect=normal_heal)
+potent_health_potion = Consumable(name="Potent Health Potion", weight=0.6, effect=strong_heal)
+strength_elixir = Consumable(name="Strength Elixir", weight=0.5, effect=minor_strength)
+
 consumable_objects = {
     "Weak Health Potion": weak_health_potion,
     "Health Potion": health_potion,

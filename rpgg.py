@@ -492,6 +492,11 @@ class KeyItem(Item):
     def __init__(self, name, weight, effect):
         super().__init__(name, weight)
         self.effect = effect
+# Creating consumables:
+weak_health_potion = Consumable(name="Weak Health Potion", weight=0.3, effect=minor_heal)
+health_potion = Consumable(name="Health Potion", weight=0.3, effect=normal_heal)
+potent_health_potion = Consumable(name="Potent Health Potion", weight=0.6, effect=strong_heal)
+strength_elixir = Consumable(name="Strength Elixir", weight=0.5, effect=minor_strength)
 # ----- ITEM SYSTEM END -----
 
 # ----- EFFECT SYSTEM START -----
@@ -541,13 +546,12 @@ class StatusEffect:
 
     def __str__(self):
         return f"{self.name} (Duration: {self.duration})"
+#STATUS EFFECTS 
+stun = StatusEffect("Stun", duration=1, effect_func=lambda char: restrict_action(char, stun), blocks_action=True)
+hold = StatusEffect("Hold", duration=2, effect_func=lambda char: restrict_action(char, hold), blocks_action=True)
+fear = StatusEffect("Fear", duration=3, effect_func=lambda char: restrict_action(char, fear), blocks_action=True)
+poison = StatusEffect("Poison", duration=3, effect_func=lambda char: poison_damage(char, poison), blocks_action=False)
 # ----- EFFECT SYSTEM END -----
-# Creating consumables:
-weak_health_potion = Consumable(name="Weak Health Potion", weight=0.3, effect=minor_heal)
-health_potion = Consumable(name="Health Potion", weight=0.3, effect=normal_heal)
-potent_health_potion = Consumable(name="Potent Health Potion", weight=0.6, effect=strong_heal)
-strength_elixir = Consumable(name="Strength Elixir", weight=0.5, effect=minor_strength)
-
 
 consumable_objects = {
     "Weak Health Potion": weak_health_potion,
@@ -562,11 +566,6 @@ gandalf.inventory["Consumables"][weak_health_potion.name] = 3
 gandalf.inventory["Consumables"][strength_elixir.name] = 3
 gandalf.equipped_weapons["right hand"] = zone_test
 
-#STATUS EFFECTS 
-stun = StatusEffect("Stun", duration=1, effect_func=lambda char: restrict_action(char, stun), blocks_action=True)
-hold = StatusEffect("Hold", duration=2, effect_func=lambda char: restrict_action(char, hold), blocks_action=True)
-fear = StatusEffect("Fear", duration=3, effect_func=lambda char: restrict_action(char, fear), blocks_action=True)
-poison = StatusEffect("Poison", duration=3, effect_func=lambda char: poison_damage(char, poison), blocks_action=False)
 
 # ----- MAGIC SYSTEM START -----
 class Magic:

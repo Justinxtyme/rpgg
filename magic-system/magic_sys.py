@@ -7,7 +7,7 @@ class Magic:
     
     def cast(self, caster, target):
         base_damage = self.effect(target)
-        bonus = 
+        multiplier = scaling.items
         
         
         

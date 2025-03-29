@@ -1,6 +1,8 @@
-# IMPORT
+# ----- IMPORT LIST START -----
 import random
-# MAP SYSTEM
+# ----- IMPORT LIST END -----
+
+# ----- MAP SYSTEM START -----
 class Tile:
     def __init__(self, terrain, passable=True):
         self.terrain = terrain
@@ -47,7 +49,9 @@ def load_map(file_path):
     return world 
 # Uncomment this when ready to use a file-based map 
 # world_map = load_map("map.txt") 
-# CHARACTER SYSTEM
+# ----- MAP SYSTEM END -----
+
+# ----- CHARACTER SYSTEM START -----
 class Character:
     def __init__(self, name: str, char_class, x=0, y=0):
         self.name = name
@@ -328,8 +332,9 @@ aragorn = Character(name="Aragorn", char_class="Warrior", x=0, y=0)
 gandalf = Character(name="Gandalf", char_class="Mage", x=0, y=0)
 zorro = Character(name="Zorro", char_class="Rogue", x=0, y=0)
 buffneck = Character(name="Buff Neck", char_class="Brute", x=0, y=0)
+# ----- CHARACTER SYSTEM END -----
 
-# WEAPONS SYSTEM
+# ----- WEAPON SYSTEM START -----
 class Weapon:
     def __init__(self, name, weight, base_damage, rarity_mod, scaling, zone):
         self.name = name
@@ -419,8 +424,9 @@ bronze_dagger = Dagger(name="Bronze Dagger", weight=2, base_damage=8, rarity_mod
 bronze_straight_sword = MediumSword(name="Bronze Straight Sword", weight=4, base_damage=12, rarity_mod=1.0, scaling={"dexterity": 0.4, "strength": 0.6}, zone=None)
 zone_test = Dagger(name="Zone", weight=2, base_damage=10, rarity_mod=1.0, scaling={"dexterity": 1.0}, zone=dagger_zone)
 print(f"Dagger {bronze_dagger.name}'s damage: {bronze_dagger.get_base_damage()} rarity: {bronze_dagger.get_rarity()}")
+# ----- WEAPON SYSTEM END -----
 
-# ARMOR SYSTEM
+# ----- ARMOR SYSTEM START -----
 class Armor:
     def __init__(self, name, weight, armor_type, armor_class, base_defense,
         rarity_mod, attribute_bonuses):
@@ -463,8 +469,9 @@ print(f"Brute {buffneck.name}'s attack: {buffneck.get_attack()} "
       f"defense: {buffneck.get_defense()} "
       f"armor defense: {buffneck.get_total_armor_defense()} "
       f"equipped armor: {buffneck.get_equipped_armor()}")
+# ----- ARMOR SYSTEM END -----
 
-#ITEM SETUP
+# ----- ITEM SYSTEM START -----
 class Item:
     def __init__(self, name, weight):
         self.name = name
@@ -485,6 +492,7 @@ class KeyItem(Item):
     def __init__(self, name, weight, effect):
         super().__init__(name, weight)
         self.effect = effect
+# ----- ITEM SYSTEM END -----
 
 def minor_heal(target):
     heal_amount = int(target.maxhp / 5)
@@ -533,7 +541,7 @@ gandalf.inventory["Consumables"][weak_health_potion.name] = 3
 gandalf.inventory["Consumables"][strength_elixir.name] = 3
 gandalf.equipped_weapons["right hand"] = zone_test
 
-#MAGIC SYSTEM
+# ----- MAGIC SYSTEM START -----
 class Magic:
     def __init__(self, name, magic_type,):
         self.name = name
@@ -563,8 +571,9 @@ class BloodMagic(Magic):
 
 minor_blessing = Divination(name="Minor Blessing", magic_type="Divination", mp_cost=20, effect=normal_heal)
 fire_blast = Pyromancy(name="Fire Blast", magic_type="Pyromancy", mp_cost=20, effect=fire_burst)
+# ----- MAGIC SYSTEM END -----
 
- # MOVEMENT
+# ----- MOVEMENT SYSTEM START -----
 def move_entity(entity, dx, dy, world_map):
     new_x = entity.x + dx
     new_y = entity.y + dy
@@ -579,8 +588,9 @@ def move_entity(entity, dx, dy, world_map):
             print(f"{entity.name} can't move there! {tile.terrain} is not passable.")
     else:
         print(f"{entity.name} can't move out of bounds!")
+# ----- MOVEMENT SYSTEM END -----
 
-# COMBAT SYSTEM
+# ----- COMBAT SYSTEM START -----
 def dagger_one(attacker, defender, weapon):
     # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.
     messages = []

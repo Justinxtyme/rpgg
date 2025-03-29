@@ -1,1 +1,1 @@
-# items-system
+# magic-system

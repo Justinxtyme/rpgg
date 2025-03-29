@@ -198,7 +198,7 @@ def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
                 elif choice == "3":
                     damage = heavy_attack(attacker, defender, attacker_weapon)
                     messages.append(f"{attacker.name} does a heavy attack!")
-                elif choice == o"4":
+                elif choice == "4":
                     item_used = False
                     while True:
                         consumable_names = list(attacker.inventory["Consumables"].keys())

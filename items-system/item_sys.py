@@ -18,3 +18,6 @@ class KeyItem(Item):
     def __init__(self, name, weight, effect):
         super().__init__(name, weight)
         self.effect = effect
+class CraftingMaterial(Item):
+    def __init__(self, name, weight):
+        super().__init__(name, weight)

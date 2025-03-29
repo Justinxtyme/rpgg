@@ -35,9 +35,9 @@ class BladeMagic(Magic):
     def __init__(self, name, magic_type, mp_cost, effect, scaling):
         super().__init__(name, magic_type, mp_cost, effect, scaling)
 
-minor_blessing = Divination(name="Minor Blessing", magic_type="Divination", mp_cost=20, effect=normal_heal)
-fire_blast = Pyromancy(name="Fire Blast", magic_type="Pyromancy", mp_cost=20, effect=fire_burst)
-blood_call = BloodMagix(name="Blood Call", magic_type ="Blood Magic",mp_cost=20, effect=None)
+minor_blessing = Divination(name="Minor Blessing", magic_type="Divination", mp_cost=20, effect=normal_heal, scaling={"light": 1.2})
+fire_blast = Pyromancy(name="Fire Blast", magic_type="Pyromancy", mp_cost=20, effect=fire_burst, scaling={"intelligence": 1.3})
+blood_call = BloodMagix(name="Blood Call", magic_type ="Blood Magic",mp_cost=20, effect=None, scaling={"dark": 1.6}, {intelligence: 0.5})
 
 
 spell_objects = {

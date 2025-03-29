@@ -9,7 +9,7 @@ class Magic:
         base_damage = self.effect(target)
         scaling_damage = 0
         for attribute, factor in self.scaling.items():
-            attribute_value = getattr(character, attribute, 0)
+            attribute_value = getattr(caster, attribute, 0)
             scaling_damage += attribute_value * factor
         total_damage = (base_damage + scaling_damage)
         return total_damage

@@ -6,7 +6,7 @@ class Magic:
         self.effect = effect
     
     def cast(self, caster, target):
-        base_damage = self.effect(target)
+        base_damage = self.effect(caster, target)
         scaling_damage = 0
         for attribute, factor in self.scaling.items():
             attribute_value = getattr(caster, attribute, 0)

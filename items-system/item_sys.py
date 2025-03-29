@@ -21,3 +21,10 @@ class KeyItem(Item):
 class CraftingMaterial(Item):
     def __init__(self, name, weight):
         super().__init__(name, weight)
+consumable_objects = {
+    "Weak Health Potion": weak_health_potion,
+    "Health Potion": health_potion,
+    "Potent Health Potion": potent_health_potion,
+    "Strength Elixir": strength_elixir
+
+}

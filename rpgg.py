@@ -494,6 +494,7 @@ class KeyItem(Item):
         self.effect = effect
 # ----- ITEM SYSTEM END -----
 
+# ----- EFFECT SYSTEM START -----
 def minor_heal(target):
     heal_amount = int(target.maxhp / 5)
     target.hp = min(target.hp + heal_amount, 100)
@@ -521,6 +522,26 @@ def fire_burst(caster, target):
 def void_burst(caster, target):
     damage = 10 + (caster.intelligence * 1.2) + (caster.dark * 1.2) / 2
     return damage
+
+## status effects
+class StatusEffect:
+    def __init__(self, name, duration, effect_func, blocks_action=False):
+        self.name = name
+        self.duration = duration  # Number of turns effect lasts
+        self.effect_func = effect_func  # Function applied each turn
+        self.blocks_action = blocks_action  # Whether it prevents the character from acting
+
+    def tick_effect(self, character):
+        """Process the effect for this turn and decrement duration."""
+        self.effect_func(character)  # Apply the effect (e.g., damage, stun message)
+        self.duration -= 1  # Reduce duration after processing
+
+    def is_expired(self):
+        return self.duration <= 0
+
+    def __str__(self):
+        return f"{self.name} (Duration: {self.duration})"
+# ----- EFFECT SYSTEM END -----
 # Creating consumables:
 weak_health_potion = Consumable(name="Weak Health Potion", weight=0.3, effect=minor_heal)
 health_potion = Consumable(name="Health Potion", weight=0.3, effect=normal_heal)
@@ -889,5 +910,5 @@ def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
         print(f"{attacker.name} has been defeated!")
     else:
         print(f"{defender.name} has been defeated!")
-
+# ----- COMBAT SYSTEM END -----
 combat_loop(gandalf, buffneck, gandalf.equipped_weapons["right hand"], bronze_dagger)

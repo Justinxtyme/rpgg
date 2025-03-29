@@ -106,7 +106,9 @@ class Character:
         self.speed = self.base_speed
         self.inventory = {"Consumables": {}, "Weapons": {},
             "Armor": {},
-            "Key Items": []}
+            "Key Items": [],
+            "Crafting Materials": {}
+            }
         self.base_carry_limit = 100
         self.equipped_weight = 0
         self.inventory_weight = 0

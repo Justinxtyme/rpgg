@@ -494,6 +494,14 @@ weak_health_potion = Consumable(name="Weak Health Potion", weight=0.3, effect=mi
 health_potion = Consumable(name="Health Potion", weight=0.3, effect=normal_heal)
 potent_health_potion = Consumable(name="Potent Health Potion", weight=0.6, effect=strong_heal)
 strength_elixir = Consumable(name="Strength Elixir", weight=0.5, effect=minor_strength)
+consumable_objects = {
+    "Weak Health Potion": weak_health_potion,
+    "Health Potion": health_potion,
+    "Potent Health Potion": potent_health_potion,
+    "Strength Elixir": strength_elixir
+
+}
+
 # ----- ITEM SYSTEM END -----
 
 # ----- EFFECT SYSTEM START -----
@@ -550,13 +558,6 @@ fear = StatusEffect("Fear", duration=3, effect_func=lambda char: restrict_action
 poison = StatusEffect("Poison", duration=3, effect_func=lambda char: poison_damage(char, poison), blocks_action=False)
 # ----- EFFECT SYSTEM END -----
 
-consumable_objects = {
-    "Weak Health Potion": weak_health_potion,
-    "Health Potion": health_potion,
-    "Potent Health Potion": potent_health_potion,
-    "Strength Elixir": strength_elixir
-
-}
 
 buffneck.inventory["Consumables"][weak_health_potion.name] = 3
 gandalf.inventory["Consumables"][weak_health_potion.name] = 3

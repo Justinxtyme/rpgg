@@ -6,6 +6,9 @@ class Magic:
         self.effect = effect
     
     def cast(self, caster, target):
+        base_damage = self.effect(target)
+        bonus = 
+        
         
         
         

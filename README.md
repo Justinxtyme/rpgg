@@ -1,1 +1,1 @@
-# magic-system
+# weapons-system

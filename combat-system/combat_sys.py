@@ -261,7 +261,7 @@ def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
 
                             chosen_name = spell_names[index]
                             chosen_spell = spell_objects[chosen_name] 
-                            chosen_spell.use(attacker)
+                            chosen_spell.cast(attacker, defender)
 
                             damage = 0 
                             spell_used = True   

@@ -11,7 +11,7 @@ MODULES = {
    'ITEMS SYSTEM': 'items-system/items.py',
    'EFFECTS SYSTEM': 'effects-system/effects.py'
    'CHARACTER SYSTEM': 'character-system/character.py',
-   'MAGIC SHSTEM': 'magic-system/magic.py',
+   'MAGIC SYSTEM': 'magic-system/magic.py',
    
 }
 

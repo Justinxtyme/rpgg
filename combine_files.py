@@ -5,7 +5,7 @@ import sys
 
 # Configuration mapping of module name to its file path.
 MODULES = {
-   'ARMOR SYSTEM': 'armor-system/armor.py',
+   'ARMOR SYSTEM': 'armor-system/armor_sys.py',
    'WEAPONS SYSTEM': 'weapons-system/weapons.py',
    'COMBAT SYSTEM': 'combat-system/combat.py',
    'ITEMS SYSTEM': 'items-system/items.py',

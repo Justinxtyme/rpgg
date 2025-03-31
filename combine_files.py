@@ -7,7 +7,12 @@ import sys
 MODULES = {
    'ARMOR SYSTEM': 'armor-system/armor.py',
    'WEAPONS SYSTEM': 'weapons-system/weapons.py',
-   # Add additional modules here...
+   'COMBAT SYSTEM': 'combat-system/combat.py',
+   'ITEMS SYSTEM': 'items-system/items.py',
+   'EFFECTS SYSTEM': 'effects-system/effects.py'
+   'CHARACTER SYSTEM': 'character-system/character.py',
+   
+   
 }
 
 # Name of the combined file.

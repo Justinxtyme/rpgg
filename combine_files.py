@@ -5,13 +5,14 @@ import sys
 
 # Configuration mapping of module name to its file path.
 MODULES = {
-   'ARMOR SYSTEM': 'armor-system/armor_sys.py',
-   'WEAPONS SYSTEM': 'weapons-system/weapons.py',
-   'COMBAT SYSTEM': 'combat-system/combat.py',
-   'ITEMS SYSTEM': 'items-system/items.py',
-   'EFFECTS SYSTEM': 'effects-system/effects.py'
-   'CHARACTER SYSTEM': 'character-system/character.py',
-   'MAGIC SYSTEM': 'magic-system/magic.py',
+    'CHARACTER SYSTEM': 'character-system/character.py',
+    'WEAPONS SYSTEM': 'weapons-system/weapons.py',
+    'ARMOR SYSTEM': 'armor-system/armor_sys.py',
+    'ITEMS SYSTEM': 'items-system/items.py',
+    'EFFECTS SYSTEM': 'effects-system/effects.py',
+    'MAGIC SYSTEM': 'magic-system/magic.py',
+    'COMBAT SYSTEM': 'combat-system/combat.py'
+}
    
 }
 

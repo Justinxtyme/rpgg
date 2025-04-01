@@ -1,4 +1,5 @@
 from init.database_loader import ARMOR
+
 class Armor:
     def __init__(self, name, weight, armor_type, armor_class, base_defense,
         rarity_mod, attribute_bonuses):
@@ -14,6 +15,13 @@ class LightArmor(Armor):
     def __init__(self, name, weight, armor_type, armor_class, base_defense, rarity_mod, attribute_bonuses):
         super().__init__(name, weight, armor_type, armor_class, base_defense, rarity_mod, attribute_bonuses)
 
+class MediumArmor(Armor):
+    def __init__(self, name, weight, armor_type, armor_class, base_defense, rarity_mod, attribute_bonuses):
+        super().__init__(name, weight, armor_type, armor_class, base_defense, rarity_mod, attribute_bonuses)
+
+class HeavyArmor(Armor):
+    def __init__(self, name, weight, armor_type, armor_class, base_defense, rarity_mod, attribute_bonuses):
+        super().__init__(name, weight, armor_type, armor_class, base_defense, rarity_mod, attribute_bonuses)
 
 #equip tests
 Character.equip_armor(gandalf, leather_helm)

@@ -1,4 +1,5 @@
 from effects import effects
+from items import items
 
 dagger_zone = {}
 def dagger_one(attacker, defender, weapon):

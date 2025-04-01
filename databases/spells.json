@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Minor Blessing",
+        "magic_type": "Divination",
+        "mp_cost": 20,
+        "effect": "normal_heal"
+    },
+    {
+        "name": "Fire Blast",
+        "magic_type": "Pyromancy",
+        "mp_cost": 20,
+        "effect": "fire_burst"
+    }
+]

@@ -2,6 +2,7 @@ class Item:
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
+
 class Consumable(Item):
     def __init__(self, name, weight, effect):
         super().__init__(name, weight)
@@ -14,6 +15,7 @@ class Consumable(Item):
         target.inventory["Consumables"][self.name] -= 1
         if target.inventory["Consumables"][self.name] == 0:
             del target.inventory["Consumables"][self.name]
+
 class KeyItem(Item):
     def __init__(self, name, weight, effect):
         super().__init__(name, weight)

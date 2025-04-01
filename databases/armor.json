@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Leather Helm",
+        "weight": 2,
+        "armor_type": "head",
+        "armor_class": "light",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Leather Cuirass",
+        "weight": 3,
+        "armor_type": "chest",
+        "armor_class": "light",
+        "base_defense": 5,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Leather Boots",
+        "weight": 1,
+        "armor_type": "feet",
+        "armor_class": "light",
+        "base_defense": 2,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Leather Leggings",
+        "weight": 2,
+        "armor_type": "legs",
+        "armor_class": "light",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Leather Vambraces",
+        "weight": 2,
+        "armor_type": "arms",
+        "armor_class": "light",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Leather Belt",
+        "weight": 1,
+        "armor_type": "waist",
+        "armor_class": "light",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    }
+]

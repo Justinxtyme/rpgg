@@ -25,7 +25,7 @@ def load_location(file_path, location_name):
 
     world = [
         [Tile(**terrain_mapping[char]) for char in row]
-        for row in location_data["world_map"]
+        for row in location_data["area_map"]
     ]
 
     return world

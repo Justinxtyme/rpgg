@@ -6,7 +6,7 @@ class Character:
         if char_class not in character_classes:
             raise ValueError(f"Unknown character class: {char_class}")
 
-        char_attributes = character_types[char_class]
+        char_attributes = character_classes[char_class]
 
         # Basic initialization
         self.name = name

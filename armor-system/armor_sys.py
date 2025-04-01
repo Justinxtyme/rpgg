@@ -1,3 +1,4 @@
+from init.database_loader import ARMOR
 class Armor:
     def __init__(self, name, weight, armor_type, armor_class, base_defense,
         rarity_mod, attribute_bonuses):

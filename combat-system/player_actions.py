@@ -1,5 +1,7 @@
 from attacks import attacks
 from zone_menu import zone_menu
+from items import items  # Ensure consumable logic is modular
+from equipment import swap_weapon  # Add weapon swapping function
 
 def player_turn(player, enemy, weapon):
     """Handles the player's turn and actions."""
@@ -28,6 +30,12 @@ def player_turn(player, enemy, weapon):
             if not consumable_used:
                 continue  # Retry menu if no consumables used
             damage = 0
+        elif choice == "5":
+            new_weapon = swap_weapon(player)
+            if not new_weapon:
+                continue  # Retry menu if no weapon selected
+            weapon = new_weapon  # Update current weapon
+            damage = 0
         elif choice == "6":
             move_name, move_func = zone_menu(weapon)
             if not move_func:
@@ -38,12 +46,17 @@ def player_turn(player, enemy, weapon):
             print("Invalid choice. Try again!")
             continue  # Re-prompt if input is invalid
 
+        # Apply damage and update enemy's HP
         enemy.hp = max(enemy.hp - damage, 0)
         if damage > 0:
             messages.append(f"{player.name} deals {damage:.2f} damage to {enemy.name}.")
         messages.append(f"{enemy.name} has {enemy.hp:.2f} HP left!")
 
-        # Print messages and return control to the main combat loop
+        # Print messages
         for message in messages:
             print(message)
+
+        # Regenerate enemy stamina at the end of player turn
+        enemy.stamina += round(enemy.max_stamina * 0.08)
+
         return damage

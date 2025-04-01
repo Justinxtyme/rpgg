@@ -13,34 +13,21 @@ GGGGGGGGGG
 GGGGGGGGGG
 GGGGGGGGGG
 """ 
-def load_map_from_string(map_string): 
-    terrain_mapping = { 
-        "G": ("grass", True), 
-        "W": ("water", False), 
-        "M": ("mountain", False), 
-        "F": ("forest", True) 
-    } 
-    world = [] 
-    for line in map_string.strip().split("\n"): 
-        row = [Tile(*terrain_mapping[char]) for char in line.strip()] 
-        world.append(row) 
-    return world 
-# Load the map from string 
-world_map = load_map_from_string(map_data) 
+def load_location(file_path, location_name):
+    with open(file_path, "r") as file:
+        locations_data = json.load(file)
+    
+    if location_name not in locations_data["locations"]:
+        raise ValueError(f"Location '{location_name}' not found!")
 
-"""""FOR FILE MAP"""
-def load_map(file_path): 
-    terrain_mapping = { 
-        "G": ("grass", True), 
-        "W": ("water", False), 
-        "M": ("mountain", False), 
-        "F": ("forest", True) 
-    } 
-    world = [] 
-    with open(file_path, "r") as file: 
-        for line in file: 
-            row = [Tile(*terrain_mapping[char]) for char in line.strip()] 
-            world.append(row) 
-    return world 
+    location_data = locations_data["locations"][location_name]
+    terrain_mapping = location_data["terrain_mapping"]
+
+    world = [
+        [Tile(**terrain_mapping[char]) for char in row]
+        for row in location_data["world_map"]
+    ]
+
+    return world
 # Uncomment this when ready to use a file-based map 
 # world_map = load_map("map.txt") 

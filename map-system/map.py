@@ -7,14 +7,7 @@ class Tile:
 
     def __str__(self):
         return self.terrain
-"""For String Map"""
-map_data = """ 
-GGGGGGGGGG
-GGGGGGGGGG
-GGGGGGGGGG
-GGGGGGGGGG
-GGGGGGGGGG
-""" 
+
 
 def load_location(file_path, location_name):
     locations_data = load_json(file_path)  # No need to import 'json' here

@@ -29,5 +29,9 @@ def load_location(file_path, location_name):
     ]
 
     return world
-# Uncomment this when ready to use a file-based map 
-# world_map = load_map("map.txt") 
+# Load specific locations
+town_one_map = load_location("databases/locations.json", "town_one")
+town_two_map = load_location("databases/locations.json", "town_two")
+
+# Print the terrain of a tile in town_one
+print(town_one_map[1][1].terrain)  # Output: "forest"

@@ -1,0 +1,33 @@
+[
+    {
+        "name": "Bronze Dagger",
+        "weight": 2,
+        "base_damage": 8,
+        "rarity_mod": 1.0,
+        "scaling": {
+            "dexterity": 1.0
+        },
+        "zone": null
+    },
+    {
+        "name": "Bronze Straight Sword",
+        "weight": 4,
+        "base_damage": 12,
+        "rarity_mod": 1.0,
+        "scaling": {
+            "dexterity": 0.4,
+            "strength": 0.6
+        },
+        "zone": null
+    },
+    {
+        "name": "Zone",
+        "weight": 2,
+        "base_damage": 10,
+        "rarity_mod": 1.0,
+        "scaling": {
+            "dexterity": 1.0
+        },
+        "zone": "dagger_zone"
+    }
+]

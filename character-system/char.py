@@ -1,3 +1,5 @@
+from INIT.database_loader import CHARACTERS
+
 class Character:
     def __init__(self, name: str, char_class: str, x=0, y=0):
         # Load character type attributes
@@ -206,6 +208,19 @@ class Character:
         print((self.x, self.y))
         return (self.x, self.y)
 
+
+def instantiate_characters():
+    """Instantiate Character objects based on JSON data."""
+    characters = []
+    for char_data in CHARACTERS["characters"]:
+        char = Character(
+            name=char_data["name"],
+            char_class=char_data["char_class"],
+            x=char_data["position"]["x"],
+            y=char_data["position"]["y"]
+        )
+        characters.append(char)
+    return characters
 
 # Example of creating different character classes
 aragorn = Character(name="Aragorn", char_class="Warrior", x=0, y=0)

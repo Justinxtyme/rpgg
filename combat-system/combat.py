@@ -1,3 +1,5 @@
+from effects import effects
+
 dagger_zone = {}
 def dagger_one(attacker, defender, weapon):
     # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.

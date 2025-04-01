@@ -1,0 +1,62 @@
+{
+    "Warrior": {
+        "strength": 15,
+        "dexterity": 10,
+        "endurance": 12,
+        "base_speed": 8,
+        "luck": 5,
+        "intelligence": 10,
+        "light": 10,
+        "dark": 10,
+        "focus": 10,
+        "presence": 12
+    },
+    "Mage": {
+        "strength": 7,
+        "dexterity": 10,
+        "endurance": 5,
+        "base_speed": 7,
+        "luck": 8,
+        "intelligence": 17,
+        "light": 10,
+        "dark": 10,
+        "focus": 15,
+        "presence": 8
+    },
+    "Rogue": {
+        "strength": 10,
+        "dexterity": 15,
+        "endurance": 10,
+        "base_speed": 12,
+        "luck": 10,
+        "intelligence": 10,
+        "light": 10,
+        "dark": 10,
+        "focus": 12,
+        "presence": 6
+    },
+    "Brute": {
+        "strength": 20,
+        "dexterity": 5,
+        "endurance": 14,
+        "base_speed": 4,
+        "luck": 5,
+        "intelligence": 3,
+        "light": 10,
+        "dark": 10,
+        "focus": 8,
+        "presence": 14
+    },
+    "Archer": {
+        "strength": 10,
+        "dexterity": 12,
+        "endurance": 10,
+        "base_speed": 10,
+        "luck": 10,
+        "intelligence": 10,
+        "light": 10,
+        "dark": 10,
+        "focus": 13,
+        "presence": 10
+    }
+}

@@ -1,7 +1,7 @@
 {
     "locations": {
         "town_one": {
-            "world_map": [
+            "area_map": [
                 ["G", "G", "G", "G", "G"],
                 ["G", "F", "F", "G", "G"],
                 ["G", "F", "G", "F", "G"],
@@ -14,7 +14,7 @@
             }
         },
         "town_two": {
-            "world_map": [
+            "area_map": [
                 ["G", "G", "W", "W", "G"],
                 ["G", "G", "W", "W", "G"],
                 ["G", "G", "W", "G", "G"],

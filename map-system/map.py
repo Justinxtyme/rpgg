@@ -18,6 +18,10 @@ GGGGGGGGGG
 
 def load_location(file_path, location_name):
     locations_data = load_json(file_path)  # No need to import 'json' here
+     
+    if location_name not in locations_data["locations"]:
+        raise ValueError(f"Location '{location_name}' not found!")
+     
     location_data = locations_data["locations"][location_name]
     terrain_mapping = location_data["terrain_mapping"]
 

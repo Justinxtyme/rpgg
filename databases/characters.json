@@ -1,0 +1,24 @@
+{
+    "characters": [
+        {
+            "name": "Aragorn",
+            "char_class": "Warrior",
+            "position": {"x": 0, "y": 0}
+        },
+        {
+            "name": "Gandalf",
+            "char_class": "Mage",
+            "position": {"x": 0, "y": 0}
+        },
+        {
+            "name": "Zorro",
+            "char_class": "Rogue",
+            "position": {"x": 0, "y": 0}
+        },
+        {
+            "name": "Buff Neck",
+            "char_class": "Brute",
+            "position": {"x": 0, "y": 0}
+        }
+    ]
+}

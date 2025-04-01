@@ -1,4 +1,4 @@
-from data_loader import load_json
+from database_loader import load_json
 
 class Tile:
     def __init__(self, terrain, passable=True):

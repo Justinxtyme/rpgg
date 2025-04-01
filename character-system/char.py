@@ -1,4 +1,4 @@
-from INIT.database_loader import CHARACTERS
+from init.database_loader import CHARACTERS
 
 class Character:
     def __init__(self, name: str, char_class: str, x=0, y=0):

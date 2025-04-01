@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Stun",
+        "duration": 1,
+        "effect_func": "restrict_action",
+        "blocks_action": true
+    },
+    {
+        "name": "Hold",
+        "duration": 2,
+        "effect_func": "restrict_action",
+        "blocks_action": true
+    },
+    {
+        "name": "Fear",
+        "duration": 3,
+        "effect_func": "restrict_action",
+        "blocks_action": true
+    },
+    {
+        "name": "Poison",
+        "duration": 3,
+        "effect_func": "poison_damage",
+        "blocks_action": false
+    }
+]

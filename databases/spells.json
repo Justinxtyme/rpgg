@@ -10,5 +10,17 @@
         "magic_type": "Pyromancy",
         "mp_cost": 20,
         "effect": "fire_burst"
+    },
+    {
+        "name": "Transfusion",
+        "magic_type": "Blood Magic",
+        "mp_cost": 20,
+        "effect": "normal_heal"
+    },
+    {
+        "name": "Blade Dance",
+        "magic_type": "Blade Magic",
+        "mp_cost": 20,
+        "effect": "blade_dance"
     }
 ]

@@ -54,56 +54,56 @@
         "attribute_bonuses": null
     },
     {
-        "name": "Iron Visor",
+        "name": "Reinforced Leather Helm",
         "weight": 3,
         "armor_type": "head",
-        "armor_class": "heavy",
-        "base_defense": 5,
+        "armor_class": "medium",
+        "base_defense": 3,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Iron Chestplate",
+        "name": "Reinforced Leather Cuirass",
         "weight": 5,
         "armor_type": "chest",
-        "armor_class": "heavy",
-        "base_defense": 7,
+        "armor_class": "medium",
+        "base_defense": 5,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Iron Boots",
-        "weight": 2,
+        "name": "Reinforced Leather Boots",
+        "weight": 3,
         "armor_type": "feet",
-        "armor_class": "heavy",
-        "base_defense": 4,
+        "armor_class": "medium",
+        "base_defense": 2,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Iron Greaves",
+        "name": "Reinforced Leather Leggings",
         "weight": 4,
         "armor_type": "legs",
-        "armor_class": "heavy",
-        "base_defense": 5,
+        "armor_class": "medium",
+        "base_defense": 3,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Iron Armplates",
-        "weight": 3,
+        "name": "Reinforced Leather Vambraces",
+        "weight": 4,
         "armor_type": "arms",
-        "armor_class": "heavy",
-        "base_defense": 5,
+        "armor_class": "medium",
+        "base_defense": 3,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Iron Girdle",
-        "weight": 2,
+        "name": "Reinforced Leather Belt",
+        "weight": 3,
         "armor_type": "waist",
-        "armor_class": "heavy",
-        "base_defense": 4,
+        "armor_class": "medium",
+        "base_defense": 3,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
@@ -162,56 +162,56 @@
         "attribute_bonuses": null
     },
     {
-        "name": "Reinforced Leather Helm",
+        "name": "Iron Visor",
         "weight": 3,
         "armor_type": "head",
-        "armor_class": "medium",
-        "base_defense": 3,
-        "rarity_mod": 1.0,
-        "attribute_bonuses": null
-    },
-    {
-        "name": "Reinforced Leather Cuirass",
-        "weight": 5,
-        "armor_type": "chest",
-        "armor_class": "medium",
+        "armor_class": "heavy",
         "base_defense": 5,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Reinforced Leather Boots",
-        "weight": 3,
-        "armor_type": "feet",
-        "armor_class": "medium",
-        "base_defense": 2,
+        "name": "Iron Chestplate",
+        "weight": 5,
+        "armor_type": "chest",
+        "armor_class": "heavy",
+        "base_defense": 7,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Reinforced Leather Leggings",
+        "name": "Iron Boots",
+        "weight": 2,
+        "armor_type": "feet",
+        "armor_class": "heavy",
+        "base_defense": 4,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Iron Greaves",
         "weight": 4,
         "armor_type": "legs",
-        "armor_class": "medium",
-        "base_defense": 3,
+        "armor_class": "heavy",
+        "base_defense": 5,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
-        "name": "Reinforced Leather Vambraces",
-        "weight": 4,
-        "armor_type": "arms",
-        "armor_class": "medium",
-        "base_defense": 3,
-        "rarity_mod": 1.0,
-        "attribute_bonuses": null
-    },
-    {
-        "name": "Reinforced Leather Belt",
+        "name": "Iron Armplates",
         "weight": 3,
+        "armor_type": "arms",
+        "armor_class": "heavy",
+        "base_defense": 5,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Iron Girdle",
+        "weight": 2,
         "armor_type": "waist",
-        "armor_class": "medium",
-        "base_defense": 3,
+        "armor_class": "heavy",
+        "base_defense": 4,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     }

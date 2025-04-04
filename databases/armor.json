@@ -4,7 +4,7 @@
         "weight": 2,
         "armor_type": "head",
         "armor_class": "light",
-        "base_defense": 3,
+        "base_defense": 1,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
@@ -13,7 +13,7 @@
         "weight": 3,
         "armor_type": "chest",
         "armor_class": "light",
-        "base_defense": 5,
+        "base_defense": 3,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
@@ -22,7 +22,7 @@
         "weight": 1,
         "armor_type": "feet",
         "armor_class": "light",
-        "base_defense": 2,
+        "base_defense": 1,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
@@ -31,7 +31,7 @@
         "weight": 2,
         "armor_type": "legs",
         "armor_class": "light",
-        "base_defense": 3,
+        "base_defense": 1,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
@@ -40,7 +40,7 @@
         "weight": 2,
         "armor_type": "arms",
         "armor_class": "light",
-        "base_defense": 3,
+        "base_defense": 1,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
@@ -49,19 +49,19 @@
         "weight": 1,
         "armor_type": "waist",
         "armor_class": "light",
-        "base_defense": 3,
+        "base_defense": 1,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
     {
         "name": "Iron Visor",
-        "weight": 3
+        "weight": 3,
         "armor_type": "head",
         "armor_class": "heavy",
         "base_defense": 5,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
-    }
+    },
     {
         "name": "Iron Chestplate",
         "weight": 5,
@@ -102,9 +102,117 @@
         "name": "Iron Girdle",
         "weight": 2,
         "armor_type": "waist",
-        "armor_class": "light",
-        "base_defense": 4
+        "armor_class": "heavy",
+        "base_defense": 4,
         "rarity_mod": 1.0,
         "attribute_bonuses": null
     },
+    {
+        "name": "Hardened Leather Helm",
+        "weight": 3,
+        "armor_type": "head",
+        "armor_class": "medium",
+        "base_defense": 4,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Hardened Leather Cuirass",
+        "weight": 4,
+        "armor_type": "chest",
+        "armor_class": "medium",
+        "base_defense": 6,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Hardened Leather Boots",
+        "weight": 2,
+        "armor_type": "feet",
+        "armor_class": "medium",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Hardened Leather Leggings",
+        "weight": 3,
+        "armor_type": "legs",
+        "armor_class": "medium",
+        "base_defense": 4,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Hardened Leather Vambraces",
+        "weight": 3,
+        "armor_type": "arms",
+        "armor_class": "medium",
+        "base_defense": 4,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Hardened Leather Belt",
+        "weight": 2,
+        "armor_type": "waist",
+        "armor_class": "medium",
+        "base_defense": 4,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Reinforced Leather Helm",
+        "weight": 3,
+        "armor_type": "head",
+        "armor_class": "medium",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Reinforced Leather Cuirass",
+        "weight": 5,
+        "armor_type": "chest",
+        "armor_class": "medium",
+        "base_defense": 5,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Reinforced Leather Boots",
+        "weight": 3,
+        "armor_type": "feet",
+        "armor_class": "medium",
+        "base_defense": 2,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Reinforced Leather Leggings",
+        "weight": 4,
+        "armor_type": "legs",
+        "armor_class": "medium",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Reinforced Leather Vambraces",
+        "weight": 4,
+        "armor_type": "arms",
+        "armor_class": "medium",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    },
+    {
+        "name": "Reinforced Leather Belt",
+        "weight": 3,
+        "armor_type": "waist",
+        "armor_class": "medium",
+        "base_defense": 3,
+        "rarity_mod": 1.0,
+        "attribute_bonuses": null
+    }
 ]

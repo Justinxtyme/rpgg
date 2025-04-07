@@ -1,5 +1,5 @@
 import math
-
+from Character-System import Character
 # Example file showing a circle moving on screen
 import pygame
 
@@ -9,13 +9,7 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 dt = 0
-
-player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-def normalize_vector(x, y):
-    magnitude = math.sqrt(x**2 + y**2)
-    if magnitude != 0:
-        return x / magnitude, y / magnitude
-    return 0, 0  # Prevent division by zero
+player = Character(0, 0)
 
 while running:
     # poll for events
@@ -32,14 +26,8 @@ while running:
     x_move = (keys[pygame.K_d] - keys[pygame.K_a])  # Right (1) / Left (-1)
     y_move = (keys[pygame.K_s] - keys[pygame.K_w])  # Down (1) / Up (-1)
 
-# Normalize the movement vector
-    x_move, y_move = normalize_vector(x_move, y_move)
+    player.move(x_move, y_move, 300, dt)
     
-
-# Apply movement
-    player_pos.x += x_move * 300 * dt
-    player_pos.y += y_move * 300 * dt
-
 
     # flip() the display to put your work on screen
     pygame.display.flip()

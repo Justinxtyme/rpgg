@@ -33,10 +33,8 @@ while running:
     y_move = (keys[pygame.K_s] - keys[pygame.K_w])  # Down (1) / Up (-1)
 
 # Normalize the movement vector
-    magnitude = math.sqrt(x_move**2 + y_move**2)
-    if magnitude > 0:
-        x_move /= magnitude
-        y_move /= magnitude
+    x_move, y_move = normalize_vector(x_move, y_move)
+    
 
 # Apply movement
     player_pos.x += x_move * 300 * dt

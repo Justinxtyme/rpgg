@@ -9,7 +9,7 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 dt = 0
-Gandalf = Character(0, 0)
+gandalf = Character(0, 0)
 gandalf_sprite = pygame.image.load("~/home/slapper/project/gitrg/gadalf.png").convert_alpha()
 # Scale sprite based on screen size
 def scale_sprite(sprite, screen_width, screen_height, scale_factor=0.1):

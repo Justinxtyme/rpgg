@@ -8,12 +8,15 @@ class Animation:
         # Slice the sprite sheet into individual frames
         for i in range(frame_count):
             rect = pygame.Rect(i * frame_width, 0, frame_width, frame_height)
-            self.frames.append(self.sprite_sheet.subsurface(rect))
+            frame = self.sprite_sheet.subsurface(rect)
+            self.frames.append(frame)
 
     def get_current_frame(self):
-        return self.frames[self.current_frame]
+        # Return the current frame of the animation
+        return self.frames[int(self.current_frame)]
 
     def update(self, dt, animation_speed):
+        # Update the animation frame index
         self.current_frame += animation_speed * dt
         if self.current_frame >= self.frame_count:
             self.current_frame = 0  # Loop back to the first frame

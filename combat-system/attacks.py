@@ -77,4 +77,3 @@ def heavy_attack(attacker, defender, weapon):
     attacker.stamina -= 20
     return max(raw_damage * multiplier, 1)
     
-#

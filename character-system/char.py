@@ -13,8 +13,7 @@ class Character:
         # Basic initialization
         self.name = name
         self.char_class = char_class
-        self.x = x
-        self.y = y
+        self.position = pygame.Vector2(x, y)
 
         # Assign attributes dynamically
         for attr, value in char_attributes.items():
@@ -207,6 +206,12 @@ class Character:
     def get_position(self):
         print((self.x, self.y))
         return (self.x, self.y)
+
+    def move(self, x_move, y_move, speed, dt):
+        movement = pygame.Vector2(x_move, y_move)
+        if movement.length() > 0:
+            movement.normalize_ip()
+        self.position += movement * speed * dt
 
 
 def instantiate_characters():

@@ -1,3 +1,4 @@
+import pygame
 class Animation:
     def __init__(self, sprite_sheet_path, frame_width, frame_height, frame_count):
         self.sprite_sheet = pygame.image.load(sprite_sheet_path).convert_alpha()

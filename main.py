@@ -8,7 +8,7 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 
 # Create your character instance (Gandalf) from your character module.
-gandalf = Character(0, 0)  # Assuming the Character class sets up a position attribute (e.g., via a pygame.Vector2)
+gandalf = Character("Gandalf", "Mage", 0, 0)  # Assuming the Character class sets up a position attribute (e.g., via a pygame.Vector2)
 
 # Create animations.
 # Replace "assets/idle_sprite_sheet.png" and "assets/walking_sprite_sheet.png" with your actual asset paths.

@@ -1,6 +1,18 @@
 import pygame
 from init.database_loader import CHARACTERS
-from init.database_loader import load_character_classes
+
+def load_character_classes(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            character_classes = json.load(file)
+        return character_classes
+    except FileNotFoundError:
+        print(f"Error: File {file_path} not found.")
+        return {}
+    except json.JSONDecodeError:
+        print(f"Error: File {file_path} contains invalid JSON.")
+        return {}
+
 
 class Character:
     def __init__(self, name: str, char_class: str, x=0, y=0):

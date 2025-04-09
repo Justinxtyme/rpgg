@@ -21,7 +21,7 @@ class Character:
         character_classes = load_character_classes("databases/char_classes.json")
 
         if char_class not in character_classes:
-            raise ValueError(f"Unknown character class: {char_class}")
+            raise ValueError(f"Unknown character class: {char_class}. Available classes: {list(character_classes.keys())}")
 
         char_attributes = character_classes[char_class]
 

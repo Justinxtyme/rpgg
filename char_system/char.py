@@ -1,3 +1,4 @@
+import pygame
 from init.database_loader import CHARACTERS
 from init.database_loader import load_character_classes
 

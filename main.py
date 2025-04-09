@@ -12,8 +12,8 @@ gandalf = Character(0, 0)  # Assuming the Character class sets up a position att
 
 # Create animations.
 # Replace "assets/idle_sprite_sheet.png" and "assets/walking_sprite_sheet.png" with your actual asset paths.
-idle_animation = Animation("assets/idle_sprite_sheet.png", 128, 128, 8)
-walking_animation = Animation("assets/walking_sprite_sheet.png", 128, 128, 6)
+idle_animation = Animation("assets/mage_idle.png", 128, 128, 8)
+walking_animation = Animation("assets/mage_walk.png", 128, 128, 6)
 
 # Set the initial animation (idle) and animation speed
 current_animation = idle_animation

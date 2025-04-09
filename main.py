@@ -21,7 +21,7 @@ animation_speed = 10  # This controls how fast the animation plays (frames per s
 
 running = True
 dt = 0
-
+facing_right = True
 while running:
     dt = clock.tick(60) / 1000  # Delta time for consistent timing
 
@@ -34,7 +34,10 @@ while running:
     keys = pygame.key.get_pressed()
     x_move = keys[pygame.K_d] - keys[pygame.K_a]  # Moves right (positive) or left (negative)
     y_move = keys[pygame.K_s] - keys[pygame.K_w]  # Moves down (positive) or up (negative)
-
+    if x_move > 0:
+        facing_right = True
+    if x_move < 0:
+        facing_right = False
     # Update Gandalf's position.
     # Assume that the move() method updates gandalf.position based on x_move, y_move, speed, and dt.
     gandalf.move(x_move, y_move, 300, dt)
@@ -54,6 +57,9 @@ while running:
     # Blit the current animation frame at the character's position.
     # Here we assume that gandalf.position is a vector (or has x and y attributes).
     current_frame = current_animation.get_current_frame()
+    if not facing_right:
+        current_frame = pygame.transform.flip(current_frame, True, False)
+        
     screen.blit(current_frame, (int(gandalf.position.x), int(gandalf.position.y)))
     
     # Update the display

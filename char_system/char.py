@@ -63,13 +63,13 @@ class Character:
         
         def update_speed(self):
         # This function adjusts speed based on encumbrance
-        if self.inventory_weight > self.carry_limit:
-            excess_weight = self.inventory_weight - self.carry_limit
+            if self.inventory_weight > self.carry_limit:
+                excess_weight = self.inventory_weight - self.carry_limit
             # Apply a penalty (1% speed reduction per 10 units of excess weight)
-            speed_penalty = (excess_weight / 10) * 0.01
-            self.speed = self.base_speed - (self.base_speed * speed_penalty)
-        else:
-            self.speed = self.base_speed
+                speed_penalty = (excess_weight / 10) * 0.01
+                self.speed = self.base_speed - (self.base_speed * speed_penalty)
+            else:
+                self.speed = self.base_speed
     ### eqipping/unequipping  functions
 
     def equip_armor(self, armor):

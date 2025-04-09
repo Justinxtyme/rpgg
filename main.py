@@ -1,6 +1,6 @@
 import pygame
 from animations.animation import Animation
-from character_system.char import Character  # Make sure your module name matches your file/folder structure
+from char_system.char import Character  # Make sure your module name matches your file/folder structure
 
 # Initialize Pygame
 pygame.init()

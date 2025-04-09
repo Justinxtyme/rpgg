@@ -243,7 +243,7 @@ def instantiate_characters():
     return characters
 
 # Example of creating different character classes
-aragorn = Character(name="Aragorn", char_class="Warrior", x=0, y=0)
-gandalf = Character(name="Gandalf", char_class="Mage", x=0, y=0)
-zorro = Character(name="Zorro", char_class="Rogue", x=0, y=0)
-buffneck = Character(name="Buff Neck", char_class="Brute", x=0, y=0)
+#aragorn = Character(name="Aragorn", char_class="Warrior", x=0, y=0)
+#gandalf = Character(name="Gandalf", char_class="Mage", x=0, y=0)
+#zorro = Character(name="Zorro", char_class="Rogue", x=0, y=0)
+#buffneck = Character(name="Buff Neck", char_class="Brute", x=0, y=0)

@@ -1,4 +1,5 @@
 import pygame
+import json
 from init.database_loader import CHARACTERS
 
 def load_character_classes(file_path):

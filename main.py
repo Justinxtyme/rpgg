@@ -4,7 +4,7 @@ from char_system.char import Character  # Make sure your module name matches you
 
 # Initialize Pygame
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
+screen = pygame.display.set_mode((1920, 1080))
 clock = pygame.time.Clock()
 
 # Create your character instance (Gandalf) from your character module.

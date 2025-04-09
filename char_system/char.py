@@ -4,7 +4,7 @@ from init.database_loader import load_character_classes
 class Character:
     def __init__(self, name: str, char_class: str, x=0, y=0):
         # Load character type attributes
-        character_classes = load_character_classes("databases/character_classes.json")
+        character_classes = load_character_classes("databases/char_classes.json")
 
         if char_class not in character_classes:
             raise ValueError(f"Unknown character class: {char_class}")

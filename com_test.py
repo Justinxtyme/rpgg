@@ -1,5 +1,6 @@
 from char_system.char import Character
 from combat_system import combat
+from init.database_loader import Weapons
 
 #combat testing
 # Create your character instance (Gandalf) from your character module.

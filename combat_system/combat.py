@@ -1,5 +1,5 @@
 from effects import effects
-
+from combat_effects import process_status_effects, poison_damage, 
 dagger_zone = {}
 
 # ZONE MENU SETUP

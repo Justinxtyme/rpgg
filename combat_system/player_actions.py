@@ -1,4 +1,4 @@
-from attacks import attacks
+from combat_system.attacks import attacks
 from combat_system.combat import zone_menu
 from items import items  # Ensure consumable logic is modular
 from equipment import swap_weapon  # Add weapon swapping function

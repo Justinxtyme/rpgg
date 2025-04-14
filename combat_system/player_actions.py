@@ -18,13 +18,13 @@ def player_turn(player, enemy, weapon):
         messages = []
 
         if choice == "1":
-            damage = basic_attack(player, enemy, weapon)
+            damage = attacks.basic_attack(player, enemy, weapon)
             messages.append(f"{player.name} performs a basic attack!")
         elif choice == "2":
-            damage = quick_strike(player, enemy, weapon)
+            damage = attacks.quick_strike(player, enemy, weapon)
             messages.append(f"{player.name} performs a quick strike!")
         elif choice == "3":
-            damage = heavy_attack(player, enemy, weapon)
+            damage = attacks.heavy_attack(player, enemy, weapon)
             messages.append(f"{player.name} performs a heavy attack!")
         elif choice == "4":
             consumable_used = use_consumable(player)

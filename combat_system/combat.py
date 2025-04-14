@@ -1,6 +1,7 @@
 import effects_system.effects
 from combat_system.combat_effects import process_status_effects, restrict_action, poison_damage
-import combat_system.enemy_ai
+import combat_system.enemy_ai as ea
+import combat_system.player_actions as pa
 dagger_zone = {}
 
 # ZONE MENU SETUP
@@ -36,14 +37,14 @@ def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
         process_status_effects(defender) 
 
         if turn % 2 != 0:  # Player's turn
-            player_turn(attacker, defender, attacker_weapon)
+            pa.player_turn(attacker, defender, attacker_weapon)
 
             # Enemy regains stamina at the end of attacker's turn (except first attack)
             if turn > 1:
                 defender.stamina += round(defender.max_stamina * 0.08)
 
         else:  # Enemy's turn
-            enemy_ai.enemy_turn(defender, attacker, defender_weapon)
+            ea.enemy_turn(defender, attacker, defender_weapon)
 
             # Attacker regains stamina at the end of enemy's turn
             attacker.stamina += round(attacker.max_stamina * 0.08)

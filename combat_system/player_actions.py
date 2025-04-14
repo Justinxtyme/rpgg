@@ -1,3 +1,4 @@
+import magic_system.magic
 import combat_system.attacks
 import items_system.items  # Ensure consumable logic is modular
 from combat_system.combat import zone_menu

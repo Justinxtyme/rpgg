@@ -26,9 +26,6 @@ def zone_menu(weapon):
         print("Invalid input.")
         return None
 
-    for effect in character.status_effects[:]:  
-        effect.tick_effect(character)
-
 def combat_loop(attacker, defender, attacker_weapon, defender_weapon):
     print(f"{defender.name} has challenged {attacker.name}!")
     turn = 1

@@ -1,6 +1,6 @@
 import combat_system.attacks
+import items_system.items  # Ensure consumable logic is modular
 from combat_system.combat import zone_menu
-from items_system.items import items  # Ensure consumable logic is modular
 #from equipment import swap_weapon  # Add weapon swapping function
 
 def player_turn(player, enemy, weapon):

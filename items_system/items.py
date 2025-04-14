@@ -1,3 +1,4 @@
+from effects_system.effects import minor_heal, normal_heal, strong_heal, minor_strength
 class Item:
     def __init__(self, name, weight):
         self.name = name

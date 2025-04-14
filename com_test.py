@@ -6,3 +6,5 @@ from init.database_loader import Weapons
 # Create your character instance (Gandalf) from your character module.
 gandalf = Character("Gandalf", "Mage", 0, 0)
 buffneck = Character("BuffNeck", "Brute", 0, 0)
+
+combat.combat_loop(gandalf, buffneck, 

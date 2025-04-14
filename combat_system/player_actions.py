@@ -32,10 +32,10 @@ def player_turn(player, enemy, weapon):
                 continue  # Retry menu if no consumables used
             damage = 0
         elif choice == "5":
-            new_weapon = swap_weapon(player)
-            if not new_weapon:
-                continue  # Retry menu if no weapon selected
-            weapon = new_weapon  # Update current weapon
+            #new_weapon = swap_weapon(player)
+            #if not new_weapon:
+            continue  # Retry menu if no weapon selected
+            #weapon = new_weapon  # Update current weapon
             damage = 0
         elif choice == "6":
             move_name, move_func = zone_menu(weapon)

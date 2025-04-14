@@ -31,6 +31,7 @@ def player_turn(player, enemy, weapon):
             if not consumable_used:
                 continue  # Retry menu if no consumables used
             damage = 0
+        # work in progress for choice 5
         elif choice == "5":
             #new_weapon = swap_weapon(player)
             #if not new_weapon:

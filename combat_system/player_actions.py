@@ -28,7 +28,7 @@ def player_turn(player, enemy, weapon):
             damage = attacks.heavy_attack(player, enemy, weapon)
             messages.append(f"{player.name} performs a heavy attack!")
         elif choice == "4":
-            consumable_used = use_consumable(player)
+            consumable_used = use_item.use_consumable(player)
             if not consumable_used:
                 continue  # Retry menu if no consumables used
             damage = 0

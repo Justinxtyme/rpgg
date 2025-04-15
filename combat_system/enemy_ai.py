@@ -1,5 +1,5 @@
 import random
-#import combat_system.attacks as attacks
+import combat_system.attacks as attacks
 
 def enemy_choose_action(enemy, health):
     # Options: 'basic', 'quick', 'heavy'

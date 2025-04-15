@@ -79,8 +79,3 @@ class LongBow(RangedWeapon):
 class CrossBow(RangedWeapon):
     def __init__(self, name, weight, base_damage, rarity_mod, scaling, zone):
         super().__init__(name, weight, base_damage, rarity_mod, scaling, zone)
-##weapon creation
-bronze_dagger = Dagger(name="Bronze Dagger", weight=2, base_damage=8, rarity_mod=1.0, scaling={"dexterity": 1.0}, zone=None)
-bronze_straight_sword = MediumSword(name="Bronze Straight Sword", weight=4, base_damage=12, rarity_mod=1.0, scaling={"dexterity": 0.4, "strength": 0.6}, zone=None)
-zone_test = Dagger(name="Zone", weight=2, base_damage=10, rarity_mod=1.0, scaling={"dexterity": 1.0}, zone=dagger_zone)
-print(f"Dagger {bronze_dagger.name}'s damage: {bronze_dagger.get_base_damage()} rarity: {bronze_dagger.get_rarity()}")

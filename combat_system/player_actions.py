@@ -42,6 +42,7 @@ def player_turn(player, enemy, weapon):
         elif choice == "6":
             if weapon.zone == None:
                 print("This weapon doesnt have zone.")
+                continue
             else:
                 move_name, move_func = zone_menu(weapon)
                 if move_func is None:  # Check if no valid move was selected

@@ -2,7 +2,7 @@ import magic_system.magic as magic
 import combat_system.attacks as attacks
 import items_system.items  # Ensure consumable logic is modular
 import combat_system.use_item as use_item
-from combat_system.combat import zone_menu
+from combat_system.zone import zone_menu
 #from equipment import swap_weapon  # Add weapon swapping function
 
 def player_turn(player, enemy, weapon):

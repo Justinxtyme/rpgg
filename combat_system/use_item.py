@@ -1,3 +1,10 @@
+consumable_objects = [
+    "Weak Health Potion",
+    "Health Potion",
+    "Potent Health Potion",
+    "Strength Elixir"
+]
+
 def use_consumable(character):
     consumable_names = list(character.inventory["Consumables"].keys())
     if not consumable_names:

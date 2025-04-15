@@ -9,6 +9,6 @@ gandalf = Character("Gandalf", "Mage", 0, 0)
 buffneck = Character("BuffNeck", "Brute", 0, 0)
 bronze_dagger = ws.Dagger(name="Bronze Dagger", weight=2, base_damage=8, rarity_mod=1.0, scaling={"dexterity": 1.0}, zone=dagger_zone)
 bronze_straight_sword = ws.MediumSword(name="Bronze Straight Sword", weight=4, base_damage=12, rarity_mod=1.0, scaling={"dexterity": 0.4, "strength": 0.6}, zone=None)
-gandalf.inventory.update({"Weak Potion": 3})
+gandalf.inventory["Consumables"]["Weak Health Potion"] = 3
 print(gandalf.inventory["Consumables"])
 combat_loop(gandalf, buffneck, bronze_dagger, bronze_straight_sword)

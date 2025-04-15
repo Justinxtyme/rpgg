@@ -2,7 +2,8 @@ def enemy_choose_action(enemy, health):
     # Options: 'basic', 'quick', 'heavy'
     actions = ['basic', 'quick', 'heavy']
     min_hp = enemy.maxhp / 3
-    if weak_health_potion.name in enemy.inventory["Consumables"] and enemy.inventory["Consumables"][weak_health_potion.name] > 0:
+    # Ensure item name is fetched from the enemy's inventory instead of assuming a hardcoded variable
+    if "Weak Health Potion" in enemy.inventory["Consumables"] and enemy.inventory["Consumables"]["Weak Health Potion"] > 0:
         if enemy.hp <= min_hp and "potion used" not in enemy.action_log:
             enemy.log_action("potion used")
             return 'heal'

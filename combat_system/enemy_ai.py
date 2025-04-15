@@ -27,13 +27,13 @@ def enemy_turn(enemy, player, enemy_weapon):
 
     action = enemy_choose_action(enemy, enemy.hp)
     if action == 'basic':
-        damage = basic_attack(enemy, player, enemy_weapon)
+        damage = attacks.basic_attack(enemy, player, enemy_weapon)
         messages.append(f"{enemy.name} performs a basic attack!")
     elif action == 'quick':
-        damage = quick_strike(enemy, player, enemy_weapon)
+        damage = attacks.quick_strike(enemy, player, enemy_weapon)
         messages.append(f"{enemy.name} performs a quick strike!")
     elif action == 'heavy':
-        damage = heavy_attack(enemy, player, enemy_weapon)
+        damage = attacks.heavy_attack(enemy, player, enemy_weapon)
         messages.append(f"{enemy.name} performs a heavy attack!")
     elif action == 'heal':
         Consumable.use(weak_health_potion, enemy)

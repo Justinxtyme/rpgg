@@ -1,5 +1,5 @@
 from char_system.char import Character
-import combat_system.combat as combat
+from combat_system.combat import combat_loop
 import weapons_system.weapons as ws
 #combat testing
 # Create your character instance (Gandalf) from your character module.
@@ -8,4 +8,4 @@ buffneck = Character("BuffNeck", "Brute", 0, 0)
 bronze_dagger = ws.Dagger(name="Bronze Dagger", weight=2, base_damage=8, rarity_mod=1.0, scaling={"dexterity": 1.0}, zone=None)
 bronze_straight_sword = ws.MediumSword(name="Bronze Straight Sword", weight=4, base_damage=12, rarity_mod=1.0, scaling={"dexterity": 0.4, "strength": 0.6}, zone=None)
 
-combat.combat_loop(gandalf, buffneck, bronze_straight_sword, bronze_dagger)
+combat_loop(gandalf, buffneck, bronze_straight_sword, bronze_dagger)

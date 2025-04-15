@@ -9,7 +9,7 @@ consumable_objects = {
     "Health Potion": health_potion,
     "Potent Health Potion": potent_health_potion,
     "Strength Elixir": strength_elixir
-
+}
 dagger_zone = {}
 dagger_zone.update({"Dagger 1": attacks.dagger_one,"Dagger 2": attacks.dagger_two,"Dagger 3": attacks.dagger_three})
 

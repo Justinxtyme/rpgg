@@ -4,12 +4,12 @@ import items_system.items  # Ensure consumable logic is modular
 import combat_system.use_item as use_item
 from combat_system.zone import zone_menu
 #from equipment import swap_weapon  # Add weapon swapping function
-consumable_objects = {
-    "Weak Health Potion": weak_health_potion,
-    "Health Potion": health_potion,
-    "Potent Health Potion": potent_health_potion,
-    "Strength Elixir": strength_elixir
-}
+consumable_objects = [
+    "Weak Health Potion",
+    "Health Potion",
+    "Potent Health Potion",
+    "Strength Elixir"
+]
 dagger_zone = {}
 dagger_zone.update({"Dagger 1": attacks.dagger_one,"Dagger 2": attacks.dagger_two,"Dagger 3": attacks.dagger_three})
 

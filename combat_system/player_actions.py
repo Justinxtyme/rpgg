@@ -1,5 +1,5 @@
 import magic_system.magic as magic
-#import combat_system.attacks as attacks
+import combat_system.attacks as attacks
 import items_system.items  # Ensure consumable logic is modular
 import combat_system.use_item as use_item
 from combat_system.zone import zone_menu

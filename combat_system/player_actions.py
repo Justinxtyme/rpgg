@@ -40,7 +40,7 @@ def player_turn(player, enemy, weapon):
             #if not new_weapon:
             continue  # Retry menu if no weapon selected
             #weapon = new_weapon  # Update current weapon
-            damage = 0
+            #damage = 0
         elif choice == "6":
             if weapon.zone == None:
                 print("This weapon doesnt have zone.")

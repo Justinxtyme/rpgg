@@ -46,11 +46,11 @@ def player_turn(player, enemy, weapon):
                 print("This weapon doesnt have zone.")
                 continue
             else:
-                move_name, move_func = zone_menu(weapon)
-                if move_func is None:  # Check if no valid move was selected
+                result = zone_menu(weapon)
+                if result is None:  # Check if no valid move was selected
                     print("No valid move selected.")
                     continue  # Return to menu selection
-            
+                move_name, move_func = result
                 damage = move_func(player, enemy, weapon)  # Execute the selected move
                 messages.append(f"{player.name} uses {move_name}!")
         else:

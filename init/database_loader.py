@@ -14,7 +14,7 @@ ARMOR = load_json("databases/armor.json")
 ITEMS = load_json("databases/items.json")
 MAGIC = load_json("databases/spells.json")
 LOCATIONS = load_json("databases/locations.json")
-consumable_objects = load_json("databases/consumable_objects.json")
+
 # Make sure this runs when imported
 if __name__ == "__main__":
     print("Databases loaded.")

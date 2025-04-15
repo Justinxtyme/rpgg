@@ -40,7 +40,7 @@ def player_turn(player, enemy, weapon):
             #weapon = new_weapon  # Update current weapon
             damage = 0
         elif choice == "6":
-            if weapon.zone = None:
+            if weapon.zone == None:
                 print("This weapon doesnt have zone.")
             else:
                 move_name, move_func = zone_menu(weapon)

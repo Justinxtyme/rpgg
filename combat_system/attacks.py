@@ -1,4 +1,5 @@
 import random
+import effects_system.effects as effects
 dagger_zone = {}
 def dagger_one(attacker, defender, weapon):
     # Perhaps quick strikes have a slight bonus to accuracy or speed but do less damage.
@@ -6,7 +7,7 @@ def dagger_one(attacker, defender, weapon):
     raw_damage = weapon.calculate_damage(attacker) * 10 # 20% less damage
     roll = random.random()
     if roll < 0.9:
-        fire_damage = fire_burst(attacker, defender)
+        fire_damage = effects.fire_burst(attacker, defender)
         total_damage = raw_damage + fire_damage
         messages.append(f"{attacker.name} deals {fire_damage:.2f} fire damage to {defender.name}.")
     else:
@@ -22,7 +23,7 @@ def dagger_two(attacker, defender, weapon):
     multiplier = 100 / (100 + defender.get_defense())
     roll = random.random()  # gives a value between 0 and 1
     if roll < 0.9:
-        void_damage = void_burst(attacker, defender)
+        void_damage = effects.void_burst(attacker, defender)
         total_damage = raw_damage + void_damage
 
     else:

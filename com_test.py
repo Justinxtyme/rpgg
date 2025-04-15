@@ -1,6 +1,6 @@
 from char_system.char import Character
 from combat_system import combat
-
+from weapons_system import Weapon
 #combat testing
 # Create your character instance (Gandalf) from your character module.
 gandalf = Character("Gandalf", "Mage", 0, 0)

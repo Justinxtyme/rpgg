@@ -40,6 +40,7 @@ def player_turn(player, enemy, weapon):
             #weapon = new_weapon  # Update current weapon
             damage = 0
         elif choice == "6":
+            print(f"Weapon Zone Data: {weapon.zone}")
             move_name, move_func = zone_menu(weapon)
             if not move_func:
                 continue  # Retry menu if no move selected

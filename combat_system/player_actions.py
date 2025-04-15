@@ -40,13 +40,16 @@ def player_turn(player, enemy, weapon):
             #weapon = new_weapon  # Update current weapon
             damage = 0
         elif choice == "6":
-            move_name, move_func = zone_menu(weapon)
-            if move_func is None:  # Check if no valid move was selected
-                print("No valid move selected.")
-                continue  # Return to menu selection
+            if weapon.zone = None:
+                print("This weapon doesnt have zone.")
+            else:
+                move_name, move_func = zone_menu(weapon)
+                if move_func is None:  # Check if no valid move was selected
+                    print("No valid move selected.")
+                    continue  # Return to menu selection
             
-            damage = move_func(player, enemy, weapon)  # Execute the selected move
-            messages.append(f"{player.name} uses {move_name}!")
+                damage = move_func(player, enemy, weapon)  # Execute the selected move
+                messages.append(f"{player.name} uses {move_name}!")
         else:
             print("Invalid choice. Try again!")
             continue  # Re-prompt if input is invalid

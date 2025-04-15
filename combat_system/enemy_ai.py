@@ -1,4 +1,4 @@
-from random import random
+import random
 
 def enemy_choose_action(enemy, health):
     # Options: 'basic', 'quick', 'heavy'

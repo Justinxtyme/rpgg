@@ -1,7 +1,7 @@
 from char_system.char import Character
 from combat_system.combat import combat_loop
 import weapons_system.weapons as ws
-from combat_system.player_action import dagger_zone
+from combat_system.player_actions import dagger_zone
 #combat testing
 # Create your character instance (Gandalf) from your character module.
 gandalf = Character("Gandalf", "Mage", 0, 0)

@@ -1,6 +1,9 @@
 import pygame
 import json
 from init.database_loader import CHARACTERS
+from items_system.items import Consumable, KeyItem
+from weapons_system.weapons import Weapon
+from armor_system.armor import Armor
 
 def load_character_classes(file_path):
     try:
@@ -75,16 +78,16 @@ class Character:
         """Calculate total defense from equipped armor."""
         # Logic for calculating armor defense (stub)
         return sum(armor["defense"] for armor in self.equipped_armor.values() if armor is not None)
-        
-        def update_speed(self):
+
+    def update_speed(self):
         # This function adjusts speed based on encumbrance
-            if self.inventory_weight > self.carry_limit:
-                excess_weight = self.inventory_weight - self.carry_limit
+        if self.inventory_weight > self.carry_limit:
+            excess_weight = self.inventory_weight - self.carry_limit
             # Apply a penalty (1% speed reduction per 10 units of excess weight)
-                speed_penalty = (excess_weight / 10) * 0.01
-                self.speed = self.base_speed - (self.base_speed * speed_penalty)
-            else:
-                self.speed = self.base_speed
+            speed_penalty = (excess_weight / 10) * 0.01
+            self.speed = self.base_speed - (self.base_speed * speed_penalty)
+        else:
+            self.speed = self.base_speed
     ### eqipping/unequipping  functions
 
     def equip_armor(self, armor):
@@ -110,12 +113,12 @@ class Character:
         """Adds a status effect to the character."""
         self.status_effects.append(effect)
         print(f"{self.name} is now affected by {effect.name} for {effect.duration} turns!")
-
-    #item functions
-    def equip_item(self, item_weight):
-        self.equipped_weight += item_weight
-       # assert for weight
-        assert self.equipped_weight <= self.inventory_weight, \
+    self.equipped_weight += item_weight
+    self.inventory_weight -= item_weight
+    # Ensure weights are not negative
+    assert self.equipped_weight >= 0, f"Equipped weight ({self.equipped_weight}) became negative!"
+    assert self.inventory_weight >= 0, f"Inventory weight ({self.inventory_weight}) became negative!"
+    self.update_speed()
          f"Equipped weight ({self.equipped_weight}) exceeds inventory weight ({self.inventory_weight})!"
         self.inventory_weight -= item_weight
         self.update_speed()
@@ -164,7 +167,7 @@ class Character:
             if item.name in self.inventory["Weapons"]:
                 self.inventory["Weapons"][item.name] -= quantity
                 if self.inventory["Weapons"][item.name] < 1:
-                    del self.inventory["Consumables"][item.name]
+                    del self.inventory["Weapons"][item.name]
                 self.inventory_weight -= item.weight * quantity     
 
             else:
@@ -184,7 +187,7 @@ class Character:
 
         else:
             return (f"Unknown item type: {item.name}")       
-        self.updatespeed()
+        self.update_speed()
 
 
 
@@ -215,9 +218,9 @@ class Character:
         return self.defense
 
 
-    def get_equipped_armor(self):
-        return {slot: armor.name if armor else "None" for slot, armor in self.equipped_armor.items()}
-
+    def get_position(self):
+        print((self.position.x, self.position.y))
+        return (self.position.x, self.position.y)
     def get_position(self):
         print((self.x, self.y))
         return (self.x, self.y)
